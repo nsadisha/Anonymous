@@ -9,6 +9,7 @@ public class Main {
         ContactList contactList = new ContactList();
         int input;
         while(true){
+            System.out.println("**Select an Option**");
             System.out.println("Enter 1 to display all contacts");
             System.out.println("Enter 2 to add contact");
             System.out.println("Enter 3 to remove contact");
