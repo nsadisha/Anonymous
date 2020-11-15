@@ -22,33 +22,64 @@ public class Main {
             System.out.println();
 
             if(input==1){
-                contactList.getAll();
+                //display all
+                String result = contactList.displayContacts();
+                System.out.println(result);
             }else if(input==2){
+                //add contact
                 String name;
                 String phoneNo;
-                System.out.println("Please enter name: ");
-                name = sc.nextLine();
-                System.out.println("Please add phone number: ");
-                phoneNo = sc.nextLine();
+
+                System.out.print("Please enter name(first name): ");
+                name = sc.next();
+                System.out.print("Please add phone number: ");
+                phoneNo = sc.next();
 
                 //adding the contact to the contact list
                 contactList.addContact(name, phoneNo);
             }else if(input==3){
+                //remove contact
+                if (contactList.getSize()>0){
+                    String name;
 
+                    System.out.print("Please enter name of the contact that you want to delete: ");
+                    name = sc.next();
+
+                    contactList.deleteContact(name);
+                }else{
+                    System.out.println("Contact list is empty! Nothing to delete.");
+                }
             }else if(input==4){
+                //edit contact
+                if (contactList.getSize()>0){
+                    String name;
+                    String newPhoneNum;
 
+                    System.out.print("Please enter name of the contact that you want to change: ");
+                    name = sc.next();
+                    System.out.print("Please enter the new phone number: ");
+                    newPhoneNum = sc.next();
+
+                    contactList.editContact(name, newPhoneNum);
+                }else{
+                    System.out.println("Contact list is empty! Nothing to edit.");
+                }
             }else if(input==5){
+                //load contacts
+                contactList.loadContacts();
 
             }else if(input==6){
+                //save contacts
+                contactList.saveContacts();
 
             }else if(input==7){
+                //exit
                 System.out.println("Exit from the system...");
                 System.exit(1);
             }else{
                 System.out.println("Invalid input! Try again.");
             }
             System.out.println();
-
         }
     }
 }
