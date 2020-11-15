@@ -42,13 +42,17 @@ public class ContactList {
 
     //add a new contact
     public void addContact(String name, String phoneNo){
-        boolean isOk = true;
+        boolean isOk = false;
         try {
-            Contact temp = new Contact(name, phoneNo);
-            this.contacts.add(temp);
+            if(Long.parseLong(phoneNo)>0 && phoneNo.length()==10){
+                Contact temp = new Contact(name, phoneNo);
+                this.contacts.add(temp);
+                isOk = true;
+            }else{
+                throw new Exception("Phone number contains 10 digits.");
+            }
         }catch (Exception e){
             System.out.println(e.getMessage());
-            isOk = false;
         }
         if (isOk){
             System.out.println("Contact successfully added!");
@@ -59,8 +63,12 @@ public class ContactList {
     public void editContact(String name, String newPhoneNo){
         boolean isOk = true;
         try {
-            this.getIndexOf(name);
-            this.contacts.get(this.currentIndex).setPhoneNo(newPhoneNo);
+            if (Long.parseLong(newPhoneNo)>0 && newPhoneNo.length()==10){
+                this.getIndexOf(name);
+                this.contacts.get(this.currentIndex).setPhoneNo(newPhoneNo);
+            }else{
+                throw new Exception("Phone number contains 10 digits.");
+            }
         }catch (Exception e){
             System.out.println(e.getMessage());
             isOk = false;
