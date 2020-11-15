@@ -23,7 +23,7 @@ Select an Option
 
 #### 4) Create a Contact class with name(String), phoneNo(String) as attributes. (Hint: You may use Encapsulation to create variables)
 
-#### 5) Create a ContactList class with a List of content objects as an attribute. (Hint: You may use [csd](https://www.w3schools.com/java/java_arraylist.asp) )
+#### 5) Create a ContactList class with a List of content objects as an attribute. (Hint: You may use [Lists](https://www.w3schools.com/java/java_arraylist.asp) )
 
 #### 6) In the ContactList class you may have addContact, deleteContact, editContact, displayContacts, loadContacts, saveContacts as methods.
 
